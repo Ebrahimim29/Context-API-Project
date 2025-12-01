@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import UserItem from "./UserItem";
+import { UserContext } from "./UserContext";
 
-const UsersList = ({users}) => {
+const UsersList = () => {
+
+    const {users} = useContext(UserContext)
+
     return (
         <div className="bg-amber-300 shadow overflow-hidden sm:rounded-md">
             <h1 className="px-4 py-5 sm:px-6 text-lg leading-6 font-medium text-gray-900">لیست کاربران</h1>
