@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { UserContext } from "./UserContext";
+import { UserContext } from "./context";
+import { permissionHOC } from "./permissionHOC";
 
 const UserItem = ({user}) => {
 
@@ -18,4 +19,5 @@ const UserItem = ({user}) => {
     )
 };
 
-export default UserItem;
+const UserItemWithPermission = permissionHOC(UserItem);
+export default UserItemWithPermission;

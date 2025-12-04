@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import UserItem from "./UserItem";
-import { UserContext } from "./UserContext";
+import { UserContext } from "./context";
 import UserAdd from "./UserAdd";
 
 const UsersList = () => {

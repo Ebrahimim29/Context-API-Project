@@ -1,5 +1,5 @@
-import { Children, useState } from "react";
-import { createContext } from "react";
+import { useState } from "react";
+import { UserContext } from "./context";
 
 const initialUsers = [
   {id:1 ,name:"حسین حسینی" ,email:"hossein@hosseini.com"},
@@ -12,18 +12,11 @@ const initialUsers = [
   {id:8 ,name:"حنانه کیایی" ,email:"hananeh@kiaei.com"},
 ]
 
-
-export const UserContext = createContext({
-    // مقادیر پیش فرض (Values)
-    users: [],
-    setUsers: () =>{},
-    addUser: () =>{},
-    deleteUser: () =>{}
-});
-
 const UserContextProvider = ({children}) => {
 
+    const [hasPermission, setHasPermission] = useState(true);
     const [users, setUsers] = useState(initialUsers);
+    
     const addUser = (user) => {
         setUsers([...users,user]);
     }
@@ -32,7 +25,7 @@ const UserContextProvider = ({children}) => {
     }
 
     return (
-        <UserContext.Provider value={{users, setUsers, addUser, deleteUser}}>
+        <UserContext.Provider value={{users, setUsers, addUser, deleteUser, hasPermission, setHasPermission}}>
             {children}
         </UserContext.Provider>
     );

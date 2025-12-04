@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import { permissionHOC } from "./permissionHOC";
 
 const UserAdd = ({setShowModal}) => {
     
@@ -28,8 +29,8 @@ const UserAdd = ({setShowModal}) => {
                 </div>
             </div>
         )
-        ,document.getElementById("modal-root"))
+        ,document.getElementById("modal-root")) 
 };
 
-
-export default UserAdd;
+const UserAddWithPermission = permissionHOC(UserAdd);
+export default UserAddWithPermission;
